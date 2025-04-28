@@ -21,16 +21,17 @@ class UNet_Attention_Transformer_Multiscale(nn.Module):
         self.up4 = Up(256, 64, bilinear)
         self.outc = OutConv(128, n_classes)
 
-        '''位置编码'''
+        '''position encoding'''
         self.pos = PositionEmbeddingLearned(512 // factor)
 
-        '''空间注意力机制'''
+        '''spatial attention mechanism'''
         self.pam = PAM_Module(512)
 
-        '''自注意力机制'''
+        '''
+self-attention mechanism'''
         self.sdpa = ScaledDotProductAttention(512)
 
-        '''残差多尺度连接'''
+        '''Residual Multi-Scale Connections'''
         self.fuse1 = MultiConv(768, 256)
         self.fuse2 = MultiConv(384, 128)
         self.fuse3 = MultiConv(192, 64)

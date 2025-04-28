@@ -5,7 +5,7 @@ from torch import nn
 
 
 class PAM_Module(nn.Module):
-    """空间注意力模块"""
+    """spatial attention module"""
     def __init__(self, in_dim):
         super(PAM_Module, self).__init__()
         self.chanel_in = in_dim
@@ -33,7 +33,7 @@ class PAM_Module(nn.Module):
 
 class PositionEmbeddingLearned(nn.Module):
     """
-    可学习的位置编码
+    Learnable positional encodings
     """
     def __init__(self, num_pos_feats=256, len_embedding=32):
         super().__init__()
@@ -62,7 +62,8 @@ class PositionEmbeddingLearned(nn.Module):
         return pos
 
 class ScaledDotProductAttention(nn.Module):
-    '''自注意力模块'''
+    '''
+self-attention module'''
 
     def __init__(self, temperature, attn_dropout=0.1):
         super().__init__()

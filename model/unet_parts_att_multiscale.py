@@ -1,6 +1,6 @@
 import torch.nn as nn
 
-'''维度转换'''
+'''Dimension conversion'''
 class MultiConv(nn.Module):
     def __init__(self, in_ch, out_ch, attn=True):
         super(MultiConv, self).__init__()
